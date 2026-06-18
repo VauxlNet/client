@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# frontend build output
+dist/
+
+# rust / cargo workspace build output
+target/
+
+# tauri generated schemas
+src-tauri/gen/schemas/
+
+# logs and secrets
+*.log
+.env
+.env.*

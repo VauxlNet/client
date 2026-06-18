@@ -1,0 +1,16 @@
+[package]
+name = "vauxl-core"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Protocol-agnostic chat contract and mock backend for the Vauxl client"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+specta = { version = "2.0.0-rc.25", features = ["derive"] }
+thiserror = "2"
+async-trait = "0.1"
+tokio = { version = "1", features = ["sync", "time"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread", "time", "sync"] }
