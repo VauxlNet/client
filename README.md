@@ -55,10 +55,3 @@ bun run tauri build         # produces a packaged desktop bundle
    crypto yourself.
 2. In `src-tauri/src/lib.rs`, change the constructor in `run` from
    `MockBackend::new()` to your `MatrixBackend`. Nothing in the UI changes.
-
-## Leftover template files (safe to delete)
-
-This repo was scaffolded from an Electrobun template. These files are now unused
-and can be removed: `electrobun.config.ts`, `src/bun/`, `src/mainview/`,
-`llms.txt`, and the old `build/` directory. They are excluded from the build but
-remain on disk so nothing is lost without your say-so.

@@ -81,8 +81,10 @@ This is why the core is Rust and the UI is treated as untrusted:
 
 Follow-ups before this is production grade:
 
-- Set a strict Content Security Policy in `tauri.conf.json` (currently `null` so
-  Vite HMR works in dev). The webview renders remote content and is attack surface.
+- A strict Content Security Policy is now set for production builds via
+  `app.security.csp` in `tauri.conf.json`; `app.security.devCsp` stays `null` so
+  Vite HMR works in dev. Revisit the policy (notably `connect-src`) when the
+  Matrix backend lands, since the webview will then reach a homeserver.
 - Encrypt the local store at rest.
 - Metadata caveat: Matrix E2EE protects message content, not metadata. A
   homeserver still sees who is in which rooms and timing. Self-hosting for you and

@@ -130,7 +130,11 @@ export default function App() {
     if (!room || !body) return;
     setDraft("");
     // The mock echoes the message back as a Timeline event, so we do not append here.
-    await commands.sendMessage(room, { type: "Text", body, formatted: null, reply_to: null });
+    const sent = await call(
+      commands.sendMessage(room, { type: "Text", body, formatted: null, reply_to: null }),
+    );
+    // On failure, restore the draft so the user does not silently lose their text.
+    if (sent === null) setDraft(body);
   }
 
   const roomsInSpace = useMemo(
